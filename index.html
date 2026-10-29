@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MAMAMIA</title>
+<style>
+  :root {
+    --bg-top: #ff6a3d;
+    --bg-bottom: #ff2e63;
+    --text: #fff8f0;
+    --shadow: #7a1030;
+  }
+  html, body {
+    margin: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at 50% 30%, var(--bg-top), var(--bg-bottom));
+    overflow: hidden;
+  }
+  h1 {
+    margin: 0;
+    font-family: "Baskerville", "Georgia", "Times New Roman", serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: clamp(3rem, 14vw, 10rem);
+    letter-spacing: 0.04em;
+    color: var(--text);
+    text-shadow:
+      0 0 0.5rem rgba(255, 255, 255, 0.3),
+      0.08em 0.08em 0 var(--shadow);
+    user-select: none;
+    text-align: center;
+    padding: 0 1rem;
+  }
+</style>
+</head>
+<body>
+  <h1>Mamamia</h1>
+</body>
+</html>
