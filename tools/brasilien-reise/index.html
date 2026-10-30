@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brasilien-Reise 2026/27 – MAMAMIA</title>
+<meta name="description" content="Route, Karte mit Orten rund um Rio de Janeiro und Packliste für die Brasilien-Reise.">
+<meta name="theme-color" content="#8fd3ff">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A6%9C%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&family=Shrikhand&display=swap">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="tool-header">
+    <div class="sun sun--small" aria-hidden="true"></div>
+    <div class="container tool-header__inner">
+      <a class="back-link" href="../../index.html">← Alle Tools</a>
+      <h1 class="tool-header__title">Brasilien</h1>
+      <p class="tool-header__sub">Rio de Janeiro &amp; Umgebung · 17.12.2026 – 04.01.2027</p>
+      <p class="countdown" id="countdown"></p>
+    </div>
+    <svg class="waves" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+      <path d="M0 40C180 10 360 70 540 40S900 10 1080 40S1320 70 1440 40V120H0Z" fill="#3cc0d8"/>
+      <path d="M0 70C200 40 400 100 600 70S1000 40 1200 70S1380 90 1440 75V120H0Z" fill="#0d4c92"/>
+      <path d="M0 100C240 80 480 120 720 100S1200 80 1440 100V120H0Z" fill="#fffaf2"/>
+    </svg>
+  </header>
+
+  <nav class="tabs" aria-label="Bereiche">
+    <div class="container tabs__inner" role="tablist">
+      <a class="tab" role="tab" href="#route" data-tab="route" aria-controls="panel-route">🧭 Route</a>
+      <a class="tab" role="tab" href="#karte" data-tab="karte" aria-controls="panel-karte">🗺️ Karte</a>
+      <a class="tab" role="tab" href="#packliste" data-tab="packliste" aria-controls="panel-packliste">🎒 Packliste</a>
+    </div>
+  </nav>
+
+  <main class="container tool-main">
+    <section id="panel-route" class="panel" role="tabpanel" aria-label="Route">
+      <div class="section__head">
+        <h2 class="section__title">Deine Route</h2>
+        <div class="meander meander--short" aria-hidden="true"></div>
+        <p class="section__lead">Erst der Norden mit Bergen und Seenregion, dann der Süden entlang der Costa Verde – 19 Tage, 18 Nächte.</p>
+      </div>
+      <div class="phase-bar" id="phase-bar"></div>
+      <div id="timeline"></div>
+
+      <div class="section__head tips-head">
+        <h2 class="section__title">Gut zu wissen</h2>
+        <div class="meander meander--short" aria-hidden="true"></div>
+      </div>
+      <div class="tips" id="tips"></div>
+    </section>
+
+    <section id="panel-karte" class="panel" role="tabpanel" aria-label="Karte und Orte" hidden>
+      <div class="section__head">
+        <h2 class="section__title">Orte rund um Rio</h2>
+        <div class="meander meander--short" aria-hidden="true"></div>
+        <p class="section__lead">Alles im 300-km-Radius um Rio de Janeiro. Fahrzeiten ab Rio sind grobe Richtwerte ohne Stau.</p>
+      </div>
+      <div class="filters" id="filters"></div>
+      <div class="explore">
+        <div class="explore__map">
+          <div id="map" class="map"></div>
+          <ul class="legend">
+            <li><i class="legend__dot legend__dot--filled"></i>Ort der Route</li>
+            <li><i class="legend__dot"></i>Weitere Idee</li>
+            <li><i class="legend__line" style="background:#1aa6c4"></i>Route Norden</li>
+            <li><i class="legend__line" style="background:#ff9f1c"></i>Route Süden</li>
+            <li><i class="legend__circle"></i>300-km-Radius</li>
+          </ul>
+        </div>
+        <div class="explore__list" id="place-list"></div>
+      </div>
+    </section>
+
+    <section id="panel-packliste" class="panel" role="tabpanel" aria-label="Packliste" hidden>
+      <div class="section__head">
+        <h2 class="section__title">Packliste</h2>
+        <div class="meander meander--short" aria-hidden="true"></div>
+        <p class="section__lead">Drei Wochen Brasilien im Dezember: Hochsommer, Strand, Berge, Weihnachten und Silvester. Deine Häkchen werden auf diesem Gerät gespeichert.</p>
+      </div>
+      <div class="pack-summary">
+        <div class="pack-summary__row">
+          <strong id="pack-status" class="pack-summary__status"></strong>
+          <div class="pack-summary__actions">
+            <label class="switch">
+              <input type="checkbox" id="hide-packed">
+              <span>Erledigte ausblenden</span>
+            </label>
+            <button class="mini-btn" type="button" id="pack-reset">Zurücksetzen</button>
+          </div>
+        </div>
+        <div class="progress" id="pack-progress" role="progressbar" aria-label="Packfortschritt" aria-valuemin="0" aria-valuemax="100"><span></span></div>
+      </div>
+      <div class="pack-grid" id="pack-grid"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="meander meander--light" aria-hidden="true"></div>
+    <p class="site-footer__quote">Thank you for the music ♪</p>
+    <small>MAMAMIA</small>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

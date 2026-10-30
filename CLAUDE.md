@@ -15,7 +15,7 @@ Statische Website: `index.html` ist die Übersichtsseite, von der aus man alle T
 
 ```html
 <li>
-  <a class="tool-card" href="tools/<tool-name>/">
+  <a class="tool-card" href="tools/<tool-name>/index.html">
     <span class="tool-card__icon" aria-hidden="true">🌞</span>
     <h3 class="tool-card__title">Tool-Name</h3>
     <p class="tool-card__text">Kurze Beschreibung.</p>

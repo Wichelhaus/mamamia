@@ -185,6 +185,64 @@ svg {
   height: clamp(51px, 6vw, 108px);
 }
 
+.tool-header {
+  position: relative;
+  overflow: hidden;
+  padding: 1rem 0 clamp(3.5rem, 7vw, 5.5rem);
+  background: linear-gradient(180deg, var(--sky-top) 0%, var(--sky-bottom) 100%);
+}
+
+.tool-header__inner {
+  position: relative;
+  z-index: 2;
+}
+
+.tool-header .waves {
+  height: clamp(30px, 4vw, 64px);
+}
+
+.sun--small {
+  top: clamp(0.75rem, 3vw, 2rem);
+  width: clamp(56px, 10vw, 110px);
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--aegean);
+  font-size: 0.9rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  background: #fff;
+}
+
+.tool-header__title {
+  margin: clamp(1.25rem, 4vw, 2rem) 0 0.5rem;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.6rem, 10vw, 4.75rem);
+  line-height: 1.05;
+  color: var(--pink);
+  text-shadow:
+    0.035em 0.035em 0 var(--sun),
+    0.07em 0.07em 0 var(--aegean);
+  transform: rotate(-2deg);
+  transform-origin: left center;
+}
+
+.tool-header__sub {
+  margin: 0;
+  font-size: clamp(1rem, 2.4vw, 1.2rem);
+  font-weight: 600;
+}
+
 .section {
   padding: clamp(2.5rem, 6vw, 5rem) 0 clamp(3rem, 8vw, 6rem);
 }
